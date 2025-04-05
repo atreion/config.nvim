@@ -55,6 +55,13 @@ return {
       desc = 'Debug: Step Out',
     },
     {
+      '<F9>',
+      function()
+        require('dap').terminate()
+      end,
+      desc = 'Debug: Stop',
+    },
+    {
       '<leader>b',
       function()
         require('dap').toggle_breakpoint()
@@ -107,14 +114,14 @@ return {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
         icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
-          run_last = '▶▶',
-          terminate = '⏹',
+          pause = '',
+          play = '',
+          step_into = '',
+          step_over = '',
+          step_out = '',
+          step_back = '',
+          run_last = '',
+          terminate = '',
           disconnect = '⏏',
         },
       },
