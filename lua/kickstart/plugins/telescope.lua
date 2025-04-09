@@ -75,16 +75,16 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Help' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Keymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Files' })
-      vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = 'Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Word' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Diagnostics' })
-      vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = 'Marks' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Resume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search help tags' })
+      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search keymaps' })
+      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search files' })
+      vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = 'Search select Telescope' })
+      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search word under cursor' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search by Live Grep' })
+      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search diagnostics' })
+      vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = 'Search marks' })
+      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Resume search' })
+      vim.keymap.set('n', '<leader>.', builtin.oldfiles, { desc = 'Recent files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -103,12 +103,12 @@ return {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
-      end, { desc = 'Live Grep in Open Files' })
+      end, { desc = 'Live Grep in open Files' })
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = 'Neovim Files' })
+      end, { desc = 'Search Neovim files' })
     end,
   },
 }
