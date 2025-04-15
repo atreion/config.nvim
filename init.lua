@@ -161,8 +161,14 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+vim.opt.shiftwidth = 4 -- The number of spaces inserted for each indentation
+vim.opt.tabstop = 4 -- Insert 4 spaces for a tab
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+
+-- Use `;` as the command line shortcut
+vim.keymap.set('n', ';', ':')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -690,6 +696,13 @@ require('lazy').setup({
             },
           },
         },
+        ts_ls = {},
+        elmls = {},
+        bashls = {},
+        cssls = {},
+        docker_compose_language_service = {},
+        dockerls = {},
+        html = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -708,6 +721,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettier', -- Used to format JS/TS code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -764,7 +778,14 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        yaml = { 'prettier' },
+        css = { 'prettier' },
+        less = { 'prettier' },
+        scss = { 'prettier' },
+        json = { 'prettier' },
+        elm = { 'elm_format' },
       },
     },
   },
@@ -837,7 +858,7 @@ require('lazy').setup({
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono',
+        nerd_font_variant = 'normal',
       },
 
       completion = {

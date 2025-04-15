@@ -2,6 +2,7 @@ return {
   'rachartier/tiny-inline-diagnostic.nvim',
   event = 'LspAttach', -- Or `VeryLazy`
   priority = 1000, -- needs to be loaded in first
+  enabled = false,
   opts = {},
 
   config = function()
